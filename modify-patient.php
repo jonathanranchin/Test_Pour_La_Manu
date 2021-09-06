@@ -22,6 +22,7 @@ if (!empty($_POST)) {
 ?>
 <body>
     <div class="container">
+    <h1>Modifier votre patient</h1>
         <div class="row mt-3">
             <div class="col-12">
                 <form action="modify-patient.php" method="POST" class="form">
@@ -55,11 +56,6 @@ if (!empty($_POST)) {
             </div>
         </div>
     </div>
-
-
-
-
-
 
 <?php
 require "footer.php"

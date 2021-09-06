@@ -1,53 +1,68 @@
+# Note de fonctionnement
+Il est nécessaire d'initialiser la base de donnée (fichier patients.sql) avant des composant du site
+J'ai monté ce projet en me servant du Wampserver en VirtualHost et php PHP 8.0.10.
+Je ne peux pas garantir de résultat dans d'autre configuration mais le code peut être réadapté.
 
+# Exercice à Réaliser
 
-## Exercice 1
+## Légende
+'=>' Lien entre page.
+'->' Fonctionalité accessible sur une page.
 
-Créer une page ajout-patient.php et y créer un formulaire permettant de créer un patient. Elle doit être accessible depuis la page index.php ( = faire un lien dans index.php qui pointe vers ajout-patient.php donc).
+### Exercice 1
 
-## Exercice 2
+index.php => ajout-patient.php -> créer un patient 
 
-Créer une page liste-patients.php et y afficher la liste des patients. Inclure dans la page, un lien vers la création de patients.
+### Exercice 2
 
-## Exercice 3
+liste-patients.php -> la liste des patients 
+liste-patients.php -> création de patients
 
-Créer une page profil-patient.php. Elle doit permettre d'afficher toutes les informations d'un patient. Elle doit être accessible depuis la page liste-patients.php et afficher les informations du patient sélectionné.
+### Exercice 3
 
-## Exercice 4
+liste-patients.php => profil-patient.php -> les informations d'un patient
 
-Depuis la page de profil d'un patient, permettre la modification de ce patient.
+### Exercice 4
 
-## Exercice 5
+profil-patient.php => modify-patient.php 
 
-Créer une page ajout-rendezvous.php et y créer un formulaire permettant de créer un rendez-vous. Elle doit être accessible depuis la page index.php.
+### Exercice 5
 
-## Exercice 6
+index.php => ajout-rendezvous.php -> créer un rendez-vous
 
-Dans la page liste-rendezvous.php, afficher la liste des rendez-vous. Inclure dans la page, un lien vers la création de rendez-vous.
+### Exercice 6
 
-## Exercice 7
+liste-rendezvous.php -> la liste des rendez-vous 
+liste-rendezvous.php => ajout-rendezvous.php -> créer un rendez-vous
 
-Créer la page rendezvous.php. Elle doit permettre d'afficher toutes les informations d'un rendez-vous. Elle doit être accessible depuis la page liste-rendezvous.php et afficher les informations du rendez-vous sélectionné.
+### Exercice 7
 
-## Exercice 8
+liste-rendezvous.php => rendezvous.php -> les informations d'un rendez-vous
 
-Depuis la page d'un rendez-vous, permettre la modification de ce rendez-vous.
+### Exercice 8
 
-## Exercice 9
+rendezvous.php => modify-rdv.php
 
-Sur la page profil du patient, afficher sous ses informations la liste de ses rendez-vous.
+### Exercice 9
 
-## Exercice 10
+profil-patient.php -> la liste de ses rendez-vous
 
-Depuis la page liste-rendezvous.php permettre la suppression d'un rendez-vous.
+### Exercice 10
 
-## Exercice 11
+liste-rendezvous.php -> la suppression d'un rendez-vous
 
-Depuis la page liste-patients.php, permettre de supprimer un patient et ses rendez-vous.
+### Exercice 11
 
-## Exercice 12
+liste-patients.php -> la suppression d'un patient et ses rendez-vous
 
-Ajouter dans la page liste-patients.php, un champs de recherche.
+### Exercice 12
 
-## Exercice 13
+liste-patients.php -> un champs de recherche
 
-Dans la page liste-patients.php, créer une pagination.
+### Exercice 13
+
+liste-patients.php -> créer une pagination
+
+### Exercice 14
+
+index.php => ajout-patient-rendez-vous.php -> d'enregistrer simultanément un patient et un rendez vous

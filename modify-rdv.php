@@ -22,6 +22,7 @@ require 'navbar.php';
 
 <body>
     <div class="container">
+    <h1>Modifiez un rendez vous!</h1>
         <div class="row mt-3">
             <div class="col-12">
                 <a href="liste-rdv.php" class="btn btn-primary btn-sm mb-2">
@@ -49,5 +50,4 @@ require 'navbar.php';
 require "footer.php"
 ?>
     </body>
-
     </html>

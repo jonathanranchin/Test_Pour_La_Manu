@@ -25,10 +25,11 @@ require 'navbar.php';
 ?>
 
 <body>
-    <div class="container">
+    <div class="container bg-secondary">
+    <h1>Ajoutez un patient!</h1>
         <div class="row mt-3">
             <div class="col-12">
-                <form action="ajout-patient.php" method="POST" class="form">
+                <form action="ajout-patient.php" method="POST" class="form" >
                     <div class="form-group">
                         <label for="">Firstname</label>
                         <input name="firstname" type="text" class="form-control">

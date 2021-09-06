@@ -39,6 +39,7 @@ require 'navbar.php';
 ?>
 
 <div class="container">
+    <h1>Ajoutez un patient et son rendez vous!</h1>
         <div class="row mt-3">
             <div class="col-12">
                 <form action="ajout-patient-rendez-vous.php" method="POST" class="form">

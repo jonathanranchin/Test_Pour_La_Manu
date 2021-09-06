@@ -13,8 +13,8 @@ require 'navbar.php';
 ?>
 
 <body>
-
     <div class="container">
+    <h1>Tous les patients de la base de donnée</h1>
         <div class="row mt-3">
             <div class="col-12">
 

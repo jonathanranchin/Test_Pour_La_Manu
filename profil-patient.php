@@ -4,17 +4,11 @@ $_SESSION['id'] = $_GET['id'];
 $variable = $_GET['id'];
 $bdd = new PDO('mysql:host=localhost;dbname=hospitale2n;charset=utf8;port=3306', 'root', '');
 
-/**
- * Données Patient
- */
 $request = 'SELECT * FROM patients WHERE id = ' . $_GET['id'];
 $response = $bdd->query($request);
 
 $patient = $response->fetch(PDO::FETCH_ASSOC);
 
-/**
- * Liste de ses rendez-vous
- */
 $request = 'SELECT * FROM appointments WHERE idPatients = ' . $_GET['id'];
 $response = $bdd->query($request);
 
@@ -26,8 +20,8 @@ $title = "Profil Patient";
 require 'navbar.php';
 ?>
 <body>
-
     <div class="container">
+    <h1>Profil du patient</h1>
         <div class="row mt-3">
             <div class="col-12">
 
@@ -79,5 +73,4 @@ require 'navbar.php';
 require "footer.php"
 ?>
 </body>
-
 </html>

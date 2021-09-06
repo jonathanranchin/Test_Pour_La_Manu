@@ -1,8 +1,4 @@
 <?php
-
-/**
- * Recéption du formulaire, gestion de POST et de l'INSERT
- */
 if (!empty($_POST)) {
 
     $bdd = new PDO('mysql:host=localhost;dbname=hospitale2n;charset=utf8;port=3306', 'root', '');
@@ -20,10 +16,6 @@ if (!empty($_POST)) {
     Header("Location: liste-rdv.php");
 }
 
-/**
- * Récupération de la liste des patients pour le select>option
- */
-
 $bdd = new PDO('mysql:host=localhost;dbname=hospitale2n;charset=utf8;port=3306', 'root', '');
 $request = 'SELECT id, firstname, lastname FROM patients';
 $response = $bdd->query($request);
@@ -39,6 +31,7 @@ require 'navbar.php';
 
 <body>
     <div class="container">
+    <h1>Ajoutez un  rendez vous!</h1>
         <div class="row mt-3">
             <div class="col-12">
                 <a href="liste-rdv.php" class="btn btn-primary btn-sm mb-2">

@@ -18,8 +18,8 @@ $appointment = $response->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <body>
-
     <div class="container">
+    <h1>Le rendez-vous que vous avez selectionné</h1>
         <div class="row mt-3">
             <div class="col-12">
                 <table class="table">

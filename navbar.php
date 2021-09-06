@@ -7,6 +7,17 @@
     <script src="https://use.fontawesome.com/4cf2843ab9.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap');
+      html,
+      body { 
+        font-family: 'Quicksand', sans-serif;
+      }
+    </style>
 </head>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark top">
       <a class="navbar-brand" href="#"><i class="fas fa-hospital-symbol w-25 p-3 backgrou-white"></i></a>

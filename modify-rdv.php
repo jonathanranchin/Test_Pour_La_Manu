@@ -1,21 +1,6 @@
 <?php
 session_start();
 $variable = $_SESSION['myid'] ;
-if (!empty($_POST)) {
-
-    $bdd = new PDO('mysql:host=localhost;dbname=hospitale2n;charset=utf8;port=3306', 'root', '');
-    $request = "UPDATE appointments SET dateHour = :dateHour WHERE id = '$variable'";
-
-    $response = $bdd->prepare($request);
-
-    $response->execute([
-        'dateHour' => $_POST['date'] . ' ' . $_POST['hour'] . ':00',
-    ]);
-    Header("Location: liste-rdv.php");
-}
-?>
-
-<?php
 $title = "Modify Rendez Vous";
 require 'navbar.php';
 ?>
@@ -28,7 +13,7 @@ require 'navbar.php';
                 <a href="liste-rdv.php" class="btn btn-primary btn-sm mb-2">
                     < Retour</a>
 
-                <form action="modify-rdv.php" method="POST" class="form">
+                <form action="../controllers/modify-rdv.php" method="POST" class="form">
                     <div class="form-group">
                         <label for="">Date du rendez-vous</label>
                         <input name="date" type="date" class="form-control">

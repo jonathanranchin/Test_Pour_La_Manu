@@ -1,8 +1,8 @@
 # Note de fonctionnement
 Il est nécessaire d'initialiser la base de donnée (fichier patients.sql) avant des composant du site
-J'ai monté ce projet en me servant du Wampserver en VirtualHost et php PHP 8.0.10.
+J'ai monté ce projet en me servant du Wampserver en VirtualHost et php PHP 8.0.10(https://www.php.net/downloads).
 
-1 Il faut commencer par mettre ce dossier dans le folder www de l'installation wamp. 
+1 Il faut commencer par mettre ce dossier dans le folder www de l'installation wamp(https://www.wampserver.com/en/). 
 2 Je vous recommande de créer votre base de données aves les queries de patients.sql (avec MYSQL de WAMP ou avec l'usage de Workbench).
 3 Ensuite il faut aller sur localhost de wamp et créer un VurtualHost. (il vous faudra lui donner un nom et indiquer le path du dossier)
 4 Finallement il sera nécessaire de redémarrer le serveur DNS dans "tools" de Wamp. (accès sur Wamp avec un click gauche)

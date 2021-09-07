@@ -2,16 +2,12 @@
 $bdd = new PDO('mysql:host=localhost;dbname=hospitale2n;charset=utf8;port=3306', 'root', '');
 $request = "SELECT * FROM patients;";
 $response = $bdd->query($request);
-
 $patients = $response->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
-
 <?php
 $title = "Liste des patients";
 require 'navbar.php';
 ?>
-
 <body>
     <div class="container">
     <h1>Tous les patients de la base de donnée</h1>
@@ -56,7 +52,6 @@ if (isset($_POST['delete-rdv'])) {
 }?>
                     </tbody>
                 </table>
-
                 <a href="ajout-patient.php" class="btn btn-primary float-right">Ajouter un patient</a>
 
             </div>

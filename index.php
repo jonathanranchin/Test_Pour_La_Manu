@@ -6,7 +6,7 @@ require 'navbar.php';
 <body class="d-flex flex-column d-flex justify-content-between align-content-around h-100 d-inline-block align-items-xl-stretch">
 
     <main role="main" class="container">
-        <h1>Bienvenue sur l'interface qui lie Médecin et Patients</h1>
+        <h1 class="4">Bienvenue sur l'interface qui lie Médecin et Patients</h1>
         <p></p>
     <div class="container">
         <div class="row mt-3">

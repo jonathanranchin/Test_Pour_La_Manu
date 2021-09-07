@@ -18,15 +18,12 @@ require 'navbar.php';
         <div class="row mt-3">
             <div class="col-12">
 
-                <table class="table" id="liste-patients">
+                <table class="table border" id="liste-patients">
                     <thead>
                         <tr>
                             <th>Identifiant</th>
                             <th>Nom de Famille</th>
                             <th>Prénom</th>
-                            <th>Anniversaire</th>
-                            <th>Téléphone</th>
-                            <th>Email</th>
                             <th>Supprimer ce patient</th>
                         </tr>
                     </thead>
@@ -38,9 +35,6 @@ require 'navbar.php';
                                     <a href="profil-patient.php?id=<?=$p['id']?>"><?=$p['lastname']?></a>
                                 </td>
                                 <td><?=$p['firstname']?></td>
-                                <td><?=$p['birthdate']?></td>
-                                <td><?=$p['phone']?></td>
-                                <td><?=$p['mail']?></td>
                                 <td>
                                     <form action="liste-patients.php" method="post">
                                         <input type='submit' name='delete-rdv'>

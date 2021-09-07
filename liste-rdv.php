@@ -30,8 +30,7 @@ require 'navbar.php';
     <h1>Tous les rendez-vous de la base de donnée</h1>
         <div class="row mt-3">
             <div class="col-12">
-
-                <table class="table">
+                <table class="table border" id="liste-patients">
                     <thead>
                         <tr>
                             <th>Date et heure</th>
@@ -48,7 +47,7 @@ require 'navbar.php';
                                     <a href="profil-patient.php?id=<?=$appointment['idPatients']?>"><?=$appointment['firstname']?> <?=$appointment['lastname']?></a>
                                 </td>
                                 <td>
-                                    <a href="rendez-vous.php?rdvId=<?php print $appointment['apId']?>"?>Page du rdv <?php echo $appointment['apId']; ?></a>
+                                    <a href="rendez-vous.php?rdvId=<?php print $appointment['apId']?>"?>Page du rdv (<?php echo $appointment['apId']; ?>)</a>
                                 </td>
                                 <td>
                                 <form action="liste-rdv.php" method="post">

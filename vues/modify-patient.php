@@ -1,6 +1,11 @@
 <?php
-session_start();
-$variable = $_SESSION['id']; 
+$patientId = $_SESSION['modify-patient-id']; 
+
+require_once ("models/patient.php");
+require_once ("models/appointment.php");
+require_once ('models/patientDataService.php');
+
+
 $title = "Modifier le profil d'un patient";
 require 'navbar.php';
 ?>
@@ -9,7 +14,9 @@ require 'navbar.php';
     <h1>Modifier votre patient</h1>
         <div class="row mt-3">
             <div class="col-12">
-                <form action="../controllers/modify-patient.php" method="POST" class="form">
+            <a href="index.php?action=<?php echo $endpoint1 ?>" class="btn btn-primary btn-sm mb-2">
+                    < Retour</a>
+                <form action="index.php" method="get" class="form">
                     <div class="form-group">
                         <label for="">Firstname</label>
                         <input name="firstname" type="text" class="form-control">
@@ -32,15 +39,16 @@ require 'navbar.php';
                     </div>
                     <div class="form-group">
                         <label for="">Id du patient</label>
-                        <p name="id" id="<?=$variable?>" class="form-control"><?=$variable?></p>
+                        <p name="id" id="<?=$patientId?>" class="form-control"><?=$patientId?></p>
                     </div> 
-
-                    <button class="btn btn-success float-right">Modifier le patient</button>
+                    
+                    <input type="hidden" name="id" value="<?= $patientId?>">
+                    <input type="hidden" name="action" value="modify_patient">
+                    <button class="btn btn-primary float-right">Modifier ce patient</button>
                 </form>
             </div>
         </div>
     </div>
-
 <?php
 require "footer.php"
 ?>

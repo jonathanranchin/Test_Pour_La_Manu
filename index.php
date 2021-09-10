@@ -1,33 +1,65 @@
-
 <?php
-$title = "Page d'Accueil";
-require 'navbar.php';
-?>
-<body class="d-flex flex-column d-flex justify-content-between align-content-around h-100 d-inline-block align-items-xl-stretch">
 
-    <main role="main" class="container">
-        <h1 class="4">Bienvenue sur l'interface qui lie Médecin et Patients</h1>
-        <p></p>
-    <div class="container">
-        <div class="row mt-3">
-            <div class="col-12">
-                <h2>Accedez à votre base de données afin de trouver, ajouter modifier et supprimer des patients et rendez vous!</h2>
-                <p></p>
-                <ul>
-                    <h3>Vérifier que tous vos patients sont là et n'oubliez pas vos rendez-vous</h3>
-                    <li><a href="liste-patients.php">Consulter les patients</a></li>
-                    <li><a href="liste-rdv.php">Consulter les rendez-vous</a></li>
-                    <h3>Ajoutez vos rendez-vous et vos patients ! </h3>
-                    <li><a href="ajout-patient-rendez-vous.php">Ajouter un patient et son rendez-vous</a></li>
-                    <li><a href="ajout-patient.php">Ajouter un patient</a></li>
-                    <li><a href="ajout-rdv.php">Ajouter un rendez-vous</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</main>
-<?php
-require "footer.php"
+require_once("controllers/appointmentController.php");
+require_once("controllers/patientsController.php");
+
+if (isset($_GET['action'])) {
+    if ($_GET['action'] == 'list_patients') {
+        listPatients();
+    }
+    elseif ($_GET['action'] == 'patient') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            onePatient($_GET['id'] );
+        }
+    }
+    elseif ($_GET['action'] == 'list_appointments') {
+        getAppointments();
+    
+    }
+    elseif ($_GET['action'] == 'appointment') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            findAppointment($_GET['id']);
+        }
+    }
+    elseif ($_GET['action'] == 'add_patient_and_appointment') {
+        goCreateNewPatientWithAppointment();
+    } elseif($_GET['action'] == 'add_patient') {
+        goCreatePatient();
+    }
+     elseif($_GET['action'] == 'add_appointment') {
+        goCreateAppointment();
+    }
+    elseif ($_GET['action'] == 'new_appointment') {
+        newAppointment();
+    }
+    if($_GET['action'] == 'new_patient_and_appointment'){
+        newPatientWithAppointment();
+    }
+    elseif ($_GET['action'] == 'new_patient') {
+        newPatient();
+    }
+    elseif ($_GET['action'] == 'remove_patient' && $_GET['id']>0) {
+        removePatient($_GET['id']);
+    }
+    elseif ($_GET['action'] == 'remove_appointment') {
+        newPatient();
+    }
+    elseif ($_GET['action'] == 'remove_rdv' && $_GET['id']>0) {
+        removeAppointment($_GET['id']);
+    }
+    elseif ($_GET['action'] == 'go_modify_rdv' && $_GET['id']>0) {
+        goUpdateAppointment($_GET['id']);
+    }
+    elseif ($_GET['action'] == 'modify_rdv' && $_GET['id']>0) {
+        updateAppointment($_GET['id']);
+    }
+    elseif ($_GET['action'] == 'go_modify_patient' && $_GET['id']>0) {
+        goUpdatePatient($_GET['id']);
+    }
+    elseif ($_GET['action'] == 'modify_patient' && $_GET['id']>0) {
+        updatePatient($_GET['id']);
+    }
+} else  { 
+    home();
+    }
 ?>
-</body>
-</html>

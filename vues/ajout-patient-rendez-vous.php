@@ -1,13 +1,15 @@
 <?php
+require_once ("models/patient.php");
+require_once ('controllers/patientsController.php');
 $title = "Créez un patient et son rendez vous";
 require 'navbar.php';
+$endpointPatientAndAppointment = "new_patient_and_appointment";
 ?>
-
 <div class="container">
     <h1>Ajoutez un patient et son rendez vous!</h1>
         <div class="row mt-3">
             <div class="col-12">
-                <form action="../controllers/ajout-patient-rendez-vous.php" method="POST" class="form">
+                <form action="index.php" method="GET" class="form">
                     <div class="form-group">
                         <label for="">Firstname</label>
                         <input name="firstname" type="text" class="form-control">
@@ -27,9 +29,7 @@ require 'navbar.php';
                     <div class="form-group">
                         <label for="">Mail</label>
                         <input name="mail" type="email" class="form-control">
-                    </div>
-                    
-                    <form action="ajout-patient-rendez-vous.php" method="POST" class="form">
+                    </div>  
                     <div class="form-group">
                         <label for="">Date du rendez-vous</label>
                         <input name="date" type="date" class="form-control">
@@ -38,13 +38,12 @@ require 'navbar.php';
                         <label for="">Heure du rendez-vous</label>
                         <input name="hour" type="time" class="form-control">
                     </div>
-                    <button class="btn btn-success float-right">Créer le patient</button>
+                    <input type="hidden" name="action" value="new_patient_and_appointment">
+                    <button class="btn btn-success float-right">Ajoutez un patient et son rendez vous</button>
                 </form>
             </div>
         </div>
     </div>
-
-
 <?php
 require "footer.php"
 ?>

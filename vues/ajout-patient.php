@@ -1,13 +1,18 @@
 <?php
-$title = "Liste des Rendez Vous";
+require_once ("models/patient.php");
+require_once ("models/appointment.php");
+$title = "Ajoutez un patient";
+$endpointAddPatient = "add_patient";
 require 'navbar.php';
 ?>
 <body>
-    <div class="container bg-secondary">
+    <div class="container">
     <h1>Ajoutez un patient!</h1>
         <div class="row mt-3">
             <div class="col-12">
-                <form action="../controllers/ajout-patient.php" method="POST" class="form" >
+            <a href="index.php?action=<?php echo $endpoint1 ?>" class="btn btn-primary btn-sm mb-2">
+                    < Retour</a>
+                <form action="index.php" method="GET" class="form" >
                     <div class="form-group">
                         <label for="">Firstname</label>
                         <input name="firstname" type="text" class="form-control">
@@ -28,7 +33,8 @@ require 'navbar.php';
                         <label for="">Mail</label>
                         <input name="mail" type="email" class="form-control">
                     </div>
-                    <button class="btn btn-success float-right">Créer le patient</button>
+                    <input type="hidden" name="action" value="new_patient">
+                    <button class="btn btn-success float-right">Ajoutez un Patient</button>
                 </form>
             </div>
         </div>
@@ -36,6 +42,3 @@ require 'navbar.php';
     <?php
 require "footer.php"
 ?>
-</body>
-
-</html>

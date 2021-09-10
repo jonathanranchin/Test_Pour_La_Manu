@@ -1,15 +1,13 @@
-<?php
-$bdd = new PDO('mysql:host=localhost;dbname=hospitale2n;charset=utf8;port=3306', 'root', '');
-$request = "SELECT * FROM patients;";
-$response = $bdd->query($request);
-$patients = $response->fetchAll(PDO::FETCH_ASSOC);
-?>
-<?php
+<?php 
+require_once ("models/patient.php");
+require_once ('models/patientDataService.php');
+$patients =  getAllPatients();
 $title = "Liste des patients";
 require 'navbar.php';
+$endpointPatient = 'patient';
 ?>
 <body>
-    <div class="container">
+    <div class="container" style="height: 100%; max-height: 100%">
     <h1>Tous les patients de la base de donnée</h1>
         <div class="row mt-3">
             <div class="col-12">
@@ -26,30 +24,21 @@ require 'navbar.php';
                     <tbody>
                         <?php foreach ($patients as $p): ?>
                             <tr>
-                                <td><?=$p['id']?></td>
+                                <td><?=$p->id?></td>
                                 <td>
-                                    <a href="profil-patient.php?id=<?=$p['id']?>"><?=$p['lastname']?></a>
+                                <a href="index.php?action=<?php echo $endpointPatient?>&amp;id=<?php echo $p->id?>"
+                                ><?=$p->lastname?></a>
                                 </td>
-                                <td><?=$p['firstname']?></td>
+                                <td><?=$p->firstname?></td>
                                 <td>
-                                    <form action="liste-patients.php" method="post">
-                                        <input type='submit' name='delete-rdv'>
+                                    <form action="index.php" method="GET">
+                                        <input type="hidden" name="action" value="remove_patient">
+                                        <a class="btn btn-warning float-right" href="index.php?action=remove_patient&amp;id=<?php echo $p->id?>"
+                                >Supprimer</a>
                                     </form>
                                 </td>
                             </tr>
                         <?php endforeach;?>
-                        <?php
-if (isset($_POST['delete-rdv'])) {
-    $bdd = new PDO('mysql:host=localhost;dbname=hospitale2n;charset=utf8;port=3306', 'root', '');
-    $variable = $p['id'];
-    $stmt = $bdd->prepare("DELETE FROM appointments WHERE idPatients=:id");
-    $stmt1 = $bdd->prepare("DELETE FROM patients WHERE id=:id");
-    $stmt->bindParam(':id', $variable);
-    $stmt1->bindParam(':id', $variable);
-    $stmt->execute();
-    $stmt1->execute();
-    echo "<meta http-equiv='refresh' content='0'>";
-}?>
                     </tbody>
                 </table>
                 <a href="ajout-patient.php" class="btn btn-primary float-right">Ajouter un patient</a>
@@ -60,6 +49,3 @@ if (isset($_POST['delete-rdv'])) {
     <?php
 require "footer.php"
 ?>
-</body>
-
-</html>

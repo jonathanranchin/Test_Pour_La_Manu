@@ -1,6 +1,8 @@
 <?php
-session_start();
-$variable = $_SESSION['myid'] ;
+require_once ("models/patient.php");
+require_once ("models/appointment.php");
+require_once ('models/appointmentDataService.php');
+$appId =  $_SESSION['modify-rdv-id'] ;
 $title = "Modify Rendez Vous";
 require 'navbar.php';
 ?>
@@ -10,10 +12,10 @@ require 'navbar.php';
     <h1>Modifiez un rendez vous!</h1>
         <div class="row mt-3">
             <div class="col-12">
-                <a href="liste-rdv.php" class="btn btn-primary btn-sm mb-2">
+            <a href="index.php?action=<?php echo $endpoint2 ?>" class="btn btn-primary btn-sm mb-2">
                     < Retour</a>
 
-                <form action="../controllers/modify-rdv.php" method="POST" class="form">
+                <form action="index.php" method="get" class="form">
                     <div class="form-group">
                         <label for="">Date du rendez-vous</label>
                         <input name="date" type="date" class="form-control">
@@ -24,15 +26,17 @@ require 'navbar.php';
                     </div>
                     <div class="form-group">
                         <label for="">Id du rendez vous</label>
-                        <p name="idPatients" id="<?=$variable?>" class="form-control"><?=$variable?></p>
+                        <p name="idPatients" id="<?=$appId ?>" class="form-control"><?=$appId ?></p>
                     </div> 
-                    <button class="btn btn-success float-right">Modifier le RDV</button>
+                    <input type="hidden" name="id" value="<?= $appId ?>">
+
+                    <input type="hidden" name="action" value="modify_rdv">
+                    <button class="btn btn-success float-right">Modifier le rendez-vous</button>
                     </form>
+
                 </div>
             </div>
         </div>
         <?php
 require "footer.php"
 ?>
-    </body>
-    </html>

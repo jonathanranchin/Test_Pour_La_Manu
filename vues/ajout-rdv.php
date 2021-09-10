@@ -1,20 +1,20 @@
 <?php
-$bdd = new PDO('mysql:host=localhost;dbname=hospitale2n;charset=utf8;port=3306', 'root', '');
-$request = 'SELECT id, firstname, lastname FROM patients';
-$response = $bdd->query($request);
-
-$patients = $response->fetchAll(PDO::FETCH_ASSOC);
+require_once ("models/patient.php");
+require_once ("models/appointment.php");
+require_once ("models/appointmentDataService.php");
+$patients = getAllPatients();
 $title = "Liste des Rendez Vous";
 require 'navbar.php';
+
 ?>
 <body>
     <div class="container">
     <h1>Ajoutez un  rendez vous!</h1>
         <div class="row mt-3">
             <div class="col-12">
-                <a href="liste-rdv.php" class="btn btn-primary btn-sm mb-2">
+                <a href="index.php?action=<?php echo $endpoint2 ?>" class="btn btn-primary btn-sm mb-2">
                     < Retour</a>
-                <form action="../controllers/ajout-rdv.php" method="POST" class="form">
+                <form action="index.php" method="GET" class="form">
                     <div class="form-group">
                         <label for="">Date du rendez-vous</label>
                         <input name="date" type="date" class="form-control">
@@ -26,13 +26,14 @@ require 'navbar.php';
                     <div class="form-group">
                         <label for="">Choisir un patient</label>
                         <select name="idPatients" id="" class="form-control">
-                            <?php foreach ($patients as $p): ?>
-                                <option value="<?=$p['id']?>"><?=$p['lastname']?> <?=$p['firstname']?></option>
+                            <?php foreach ($patients as $patient):?>
+                                <option value="<?=$patient->id?>"><?=$patient->lastname?> <?=$patient->firstname?></option>
                                 <?php endforeach;?>
                             </select>
                         </div>
-
-                        <button class="btn btn-success float-right">Créer le RDV</button>
+                        <input type="hidden" name="action" value="new_appointment">
+                        <button class="btn btn-success float-right">Ajoutez un Rendez Vous</button>
+                        
                     </form>
                 </div>
             </div>
@@ -40,5 +41,3 @@ require 'navbar.php';
         <?php
 require "footer.php"
 ?>
-    </body>
-    </html>
